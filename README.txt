@@ -1,0 +1,1 @@
+This website is an informational website about red pandas. The homepage contains basic facts about the animal. There is also a gallery of images and a page with links to both conservation efforts concerning the red panda and sources to learn more information about them.

@@ -168,31 +168,29 @@ body {
     <script>
         document.getElementById("trivia").onsubmit = function (event) {
             event.preventDefault();
+            correctAnswers = ["china", "ailurus", "tail", "bamboo", "deforestation"];
+            userAnswers = [];
             let score = 0;
 
             const answer1 = document.querySelector('input[name="native"]:checked').value;
-            if (answer1 == "china") {
-                score++;
-            }
+            userAnswers.push(answer1);
 
             const answer2 = document.querySelector('input[name="scientific"]:checked').value;
-            if (answer2 == "ailurus") {
-                score++;
-            }
+            userAnswers.push(answer2);
 
             const answer3 = document.querySelector('input[name="balance"]:checked').value;
-            if (answer3 == "tail") {
-                score++;
-            }
+            userAnswers.push(answer3);
 
             const answer4 = document.querySelector('input[name="food"]:checked').value;
-            if (answer4 == "bamboo") {
-                score++;
-            }
+            userAnswers.push(answer4);
 
             const answer5 = document.querySelector('input[name="threat"]:checked').value;
-            if (answer5 == "deforestation") {
-                score++;
+            userAnswers.push(answer5);
+
+            for (i = 0; i < correctAnswers.length; i++) {
+                if (correctAnswers[i] == userAnswers[i]) {
+                    score++;
+                }
             }
 
             if (score === 5) {

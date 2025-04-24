@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>All About Red Pandas</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Helvetica;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 175px;
+  text-align: center;
+  text-shadow: 3px 3px #333;
+  background-image: url(header\ img.jpg);
+  background-size: 1900px;
+  color: white;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  display: flex;
+  background-color: #1b401c;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: whitesmoke;
+  color: #1b401c;
+}
+
+
+/* Main column */
+.main {
+  flex: 70%;
+  background-color: whitesmoke;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+/* Score */
+.score {
+    color: red;
+}
+
+@media screen and (max-width: 1000px) { .header {background-size: 1000px; padding: 100px}  }
+</style>
+
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>All About Red Pandas</h1>
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="index.html">Homepage</a>
+  <a href="Project 1 Gallery.html">Gallery</a>
+  <a href="Project 1 More Information.html">More Information</a>
+  <a href="Project 1 Pledge.html">Pledge</a>
+  <a href="Project 1 Trivia.html">Trivia</a>
+
+</div>
+
+
+<!-- The flexible grid (content) -->
+  
+    <div class="main">
+    <h3>Take this quiz to test your Red Panda knowledge!</h3>
+    <form id="trivia">
+        <p>1. Where are Red Pandas native to?</p>
+        <input type="radio" id="france" name="native" value="france" />
+        <label for="france">France and Italy</label>
+        <br>
+        <input type="radio" id="japan" name="native" value="japan" />
+        <label for="japan">Japan</label>
+        <br>
+        <input type="radio" id="china" name="native" value="china" />
+        <label for="china">China and the Himalayas</label>
+        <br>
+        <input type="radio" id="canada" name="native" value="canada" />
+        <label for="canada">Canada</label>
+        
+        <p>2. What is the scientific name of Red Pandas?</p>
+        <input type="radio" id="ailurus" name="scientific" value="ailurus" />
+        <label for="ailurus">Ailurus fulgens</label>
+        <br>
+        <input type="radio" id="ailuropoda" name="scientific" value="ailuropoda" />
+        <label for="ailuropoda">Ailuropoda melanoleuca</label>
+        <br>
+        <input type="radio" id="procyon" name="scientific" value="procyon" />
+        <label for="procyon">Procyon lotor</label>
+        <br>
+        <input type="radio" id="felis" name="scientific" value="felis" />
+        <label for="felis">Felis catus</label>
+
+        <p>3. What part of their body do Red Pandas use to keep their balance in trees?</p>
+        <input type="radio" id="toes" name="balance" value="toes" />
+        <label for="toes">Their toes</label>
+        <br>
+        <input type="radio" id="tail" name="balance" value="tail" />
+        <label for="tail">Their tail</label>
+        <br>
+        <input type="radio" id="whiskers" name="balance" value="whiskers" />
+        <label for="whiskers">Their whiskers</label>
+        <br>
+        <input type="radio" id="ears" name="balance" value="ears" />
+        <label for="ears">Their ears</label>
+        
+        <p>4. What are Red Pandas' main source of food?</p>
+        <input type="radio" id="bark" name="food" value="bark" />
+        <label for="bark">Tree bark</label>
+        <br>
+        <input type="radio" id="bugs" name="food" value="bugs" />
+        <label for="bugs">Bugs</label>
+        <br>
+        <input type="radio" id="candy" name="food" value="candy" />
+        <label for="candy">Candy</label>
+        <br>
+        <input type="radio" id="bamboo" name="food" value="bamboo" />
+        <label for="bamboo">Bamboo</label>
+
+        <p>5. Which of these is a threat to Red Pandas' habitats?</p>
+        <input type="radio" id="volcanoes" name="threat" value="volcanoes" />
+        <label for="volcanoes">Volcanoes</label>
+        <br>
+        <input type="radio" id="deforestation" name="threat" value="deforestation" />
+        <label for="deforestation">Deforestation</label>
+        <br>
+        <input type="radio" id="tornadoes" name="threat" value="tornadoes" />
+        <label for="tornadoes">Tornadoes</label>
+        <br>
+        <input type="radio" id="tsunamis" name="threat" value="tsunamis" />
+        <label for="tsunamis">Tsunamis</label>
+        <br>
+    
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div class="score">
+    <p id="points"></p>
+    </div>
+    </div>
+    <script>
+        document.getElementById("trivia").onsubmit = function (event) {
+            event.preventDefault();
+            let score = 0;
+
+            const answer1 = document.querySelector('input[name="native"]:checked').value;
+            if (answer1 == "china") {
+                score++;
+            }
+
+            const answer2 = document.querySelector('input[name="scientific"]:checked').value;
+            if (answer2 == "ailurus") {
+                score++;
+            }
+
+            const answer3 = document.querySelector('input[name="balance"]:checked').value;
+            if (answer3 == "tail") {
+                score++;
+            }
+
+            const answer4 = document.querySelector('input[name="food"]:checked').value;
+            if (answer4 == "bamboo") {
+                score++;
+            }
+
+            const answer5 = document.querySelector('input[name="threat"]:checked').value;
+            if (answer5 == "deforestation") {
+                score++;
+            }
+
+            if (score === 5) {
+                document.getElementById("points").textContent = "Congrats! You scored 5/5!";
+            } else {
+                document.getElementById("points").textContent = "You scored " + score + "/5.";
+            }
+        };
+
+    </script>
+   </div>
+
+</body>
+</html>

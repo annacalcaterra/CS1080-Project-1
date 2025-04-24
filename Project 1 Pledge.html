@@ -78,28 +78,42 @@ body {
   <a href="Project 1 More Information.html">More Information</a>
   <a href="Project 1 Pledge.html">Pledge</a>
   <a href="Project 1 Trivia.html">Trivia</a>
-
 </div>
 
 
 <!-- The flexible grid (content) -->
   
     <div class="main">
-    <h3>Conservation Efforts</h3>
-    <p>Here are some organizations that help with the conservation of red pandas:</p>
-    <ul>
-        <li><a href="https://redpandanetwork.org/" target="blank">Red Panda Network</a></li>
-        <li><a href="https://gifts.worldwildlife.org/gift-center/gifts/Species-Adoptions/Red-Panda?sc=AWY1705OQ18316A01275RX&_gl=1*nipxfq*_gcl_au*MTM2MTM5MDguMTc0MTExODI3NA..*_ga*MTUzODkxMzUzNy4xNzQxMTE4Mjc0*_ga_FK6M9RK84Z*MTc0MTExODI3NC4xLjEuMTc0MTExODI3Ni4wLjAuMzE2MDA1NzA2" target="blank">World Wildlife: Adopt a Red Panda</a></li>
-        <li><a href="https://www.rainforesttrust.org/urgent-projects/creating-the-red-panda-community-forest/" target="blank">Rain Forest Trust</a></li>
-    </ul>
-    <h3>Further Reading</h3>
-    <p>Here are some links containing more information about red pandas:</p>
-    <ul>
-        <li><a href="https://nationalzoo.si.edu/animals/red-panda" target="blank">National Zoo Red Pandas</a></li>
-        <li><a href="https://www.britannica.com/animal/red-panda" target="blank">Britannica</a></li>
-        <li><a href="https://redpandanetwork.org/red-panda-facts" target="blank">Red Panda Network: Facts</a></li>
-    </ul>
-    </div>
+    <h3>Pledge to protect Red Pandas!</h3>
+    <label for="name">Your name:</label>
+      <input type="text" id="name" placeholder="Enter your name"/>
+      <br><br>
+      <button type="submit" onclick="submitPledge()">Submit</button>
+    <h4>Current supporters:</h4>
+    <p id="hi"></p>
+  
+
+    <script>
+      let names = [];
+
+      const saved = localStorage.getItem("names");
+      if (saved) {
+        document.getElementById("hi").textContent = saved;
+      }
+
+      function submitPledge() {
+        const name = document.getElementById("name").value;
+        if (name) {
+          names.push(" " + name);
+          localStorage.setItem("names", names);
+          document.getElementById("hi").textContent = names;
+
+        }
+
+      document.getElementById("name").value = '';
+
+    };
+    </script>
    </div>
 
 </body>
